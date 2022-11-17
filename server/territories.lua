@@ -30,8 +30,7 @@ end
 
 RegisterNetEvent("qb-gangs:server:updateterritories")
 AddEventHandler("qb-gangs:server:updateterritories", function(zone, inside)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local Player = QBCore.Functions.GetPlayer(source)
     local Gang = Player.PlayerData.gang
     local Job = Player.PlayerData.job
 

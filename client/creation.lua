@@ -15,7 +15,7 @@ AddEventHandler("qb-gangs:client:BeginGangCreation", function(gangName, gangLabe
         ["Stash"] = {}
     }
     isCreatingGang = true
-    TriggerEvent("chatMessage", "SYSTEM", "warning", "New Gang: "..gangName.." added, use /placestash, /placegarage,  /finishgang or /cancelgang")
+    TriggerEvent("chatMessage", "SYSTEM", "warning", "Új banda: "..gangName.."létrehozva, használd a /placestash, /placegarage,  /finishgang or /cancelgang")
 end)
 
 RegisterCommand("placestash", function()
@@ -29,12 +29,12 @@ RegisterCommand("placestash", function()
             }
 
             hasStash = true
-            QBCore.Functions.Notify("Gang Stash Placed", "success")
+            QBCore.Functions.Notify("Banda tároló lerakva", "success")
         else
-            QBCore.Functions.Notify("You have already placed the stash", "error")
+            QBCore.Functions.Notify("Tároló már le van rakva te vasz", "error")
         end
     else
-        QBCore.Functions.Notify("You are not creating a gang", "error")
+        QBCore.Functions.Notify("Nem nem csinálsz bandát!", "error")
     end
 end)
 
@@ -47,10 +47,10 @@ RegisterCommand("placegarage", function()
                 action = "open"
             })
         else
-            QBCore.Functions.Notify("You have already placed the garage", "error")
+            QBCore.Functions.Notify("Már leraktál egy banda garázst!", "error")
         end
     else
-        QBCore.Functions.Notify("You are not creating a gang", "error")
+        QBCore.Functions.Notify("Te nem készítesz bandát!", "error")
     end
 end)
 
@@ -61,10 +61,10 @@ RegisterCommand("finishgang", function()
             gang = nil
             hasGarage, hasStash = false, false
         else
-            QBCore.Functions.Notify("You are not finished", "error")
+            QBCore.Functions.Notify("Nem fejezted még be!", "error")
         end
     else
-        QBCore.Functions.Notify("You are not creating a gang", "error")
+        QBCore.Functions.Notify("Te nem készítesz bandát!", "error")
     end
 end)
 
@@ -73,7 +73,7 @@ RegisterCommand("cancelgang", function()
         isCreatingGang, hasGarage, hasStash = false, false, false
         gang, name, label = nil, nil, nil
     else
-        QBCore.Functions.Notify("You are not creating a gang", "error")
+        QBCore.Functions.Notify("Te nem készítesz bandát!", "error")
     end
 end)
 
@@ -112,12 +112,12 @@ RegisterNUICallback("SetVehicleColour", function(data, cb)
             local name = QBCore.Shared.Vehicles[v].name
             gang["VehicleSpawner"]["vehicles"][v] = name
         else
-            QBCore.Functions.Notify(v.." does not exist in qb-core/shared-modules/vehicles.lua", "error")
+            QBCore.Functions.Notify(v.." nem létezik a jármű  a qb-core/shared-modules/vehicles.lua fájlban! Szólj egy fejlesztőnek vagy tulajdonosknak!", "error")
         end
     end
 
     hasGarage = true
-    QBCore.Functions.Notify("Garage Placed", "success")
+    QBCore.Functions.Notify("Garázs lerakva!", "success")
 
     cb("200 - OK")
 end)

@@ -133,21 +133,21 @@ TriggerEvent("chat:removeSuggestion", "/-GangInteract")
 RegisterKeyMapping("+GangInteract", "Banda menü interakció", "keyboard", "e")
 
 function GangGarage()
-    MenuTitle = "Garage"
+    MenuTitle = "Garázs"
     ClearMenu()
     Menu.addButton("Járművek", "VehicleList", nil)
     Menu.addButton("Menü bezárása", "closeMenuFull", nil) 
 end
 
 function VehicleList(isDown)
-    MenuTitle = "Vehicle:"
+    MenuTitle = "Jármű:"
     ClearMenu()
     Vehicles = Config.Gangs[PlayerGang.name]["VehicleSpawner"]["vehicles"]
     for k, v in pairs(Vehicles) do
         Menu.addButton(Vehicles[k], "TakeOutVehicle", k, "Garázs", " Motor: 100%", " Karosszéria: 100%", " Üzemanyag: 100%")
     end
         
-    Menu.addButton("Return", "GangGarage",nil)
+    Menu.addButton("Vissza", "GangGarage",nil)
 end
 
 function TakeOutVehicle(vehicleInfo)
