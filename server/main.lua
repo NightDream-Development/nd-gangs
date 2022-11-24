@@ -5,7 +5,7 @@ QBCore.Functions.CreateCallback("qb-gangs:server:FetchConfig", function(source, 
     cb(json.decode(LoadResourceFile(GetCurrentResourceName(), "config.json")))
 end)
 
-QBCore.Commands.Add("creategang", "Create a whitelisted gang job with a stash and car spawn", {{name = "gang", help = "Name of the gang"}, {name = "label", help = "Gang Label"}}, true, function(source, args)
+QBCore.Commands.Add("creategang", "Csinál bandát és rakj le nekik tárolót és kocsi lehívót!", {{name = "gang", help = "Banda config név"}, {name = "label", help = "Banda név"}}, true, function(source, args)
     name = args[1]
     table.remove(args, 1)
     label = table.concat(args, " ")
@@ -31,7 +31,7 @@ RegisterServerEvent("qb-gangs:server:creategang", function(newGang, gangName, ga
         TriggerClientEvent("QBCore:Client:UpdateGangs", -1, gangs)
         TriggerEvent("QBCore:Server:UpdateGangs", gangs)
 
-        TriggerClientEvent("QBCore:Notify", source, "Gang: "..gangName.." successfully Created", "success")
+        TriggerClientEvent("QBCore:Notify", source, "Banda: "..gangName.." SIkeresen elkészítve", "success")
 
 end)
 

@@ -1,17 +1,14 @@
 Config = {
-	["GangLeaders"] = {
-		["ballas"] = {
+	["GangLeaders"] = { --banda vezetők
+		["ballas"] = { -- East side ballas
 	
 		},
-		["grove"] = {
-			"ZKM65257"
+		["grove"] = { --Grove street families
+			--"ZKM65257"
 
 		},
-		["volk"] = {
-			"ZTX70507"
-			
-		},
-		["families"] = {
+		["volk"] = { --Orosz maffia
+			--"ZTX70507"
 			
 		},
 		["lost"] = {

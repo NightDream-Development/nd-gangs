@@ -49,19 +49,8 @@ Citizen.CreateThread(function()
                     while insidePoint == true do
                         TriggerServerEvent("qb-gangs:server:updateterritories", activeZone, true)
 
-                        -- We fetch a callback for the most reason status of the zone and send it to the NUI
-                        QBCore.Functions.TriggerCallback("qb-gangs:server:getstatus", function(status, gang, score)
-                            SendNUIMessage({
-                                action = "showgang",
-                                data = {
-                                    status = status,
-                                    winner = gang,
-                                    score = score
-                                },
-                                gang = PlayerGang.label ~= "none" and PlayerGang.label or "Police",
-                                max = Zones["Config"].minScore
-                            })
-                        end, activeZone)
+                        --NUi fix mert egy büdős szar az egész!
+                        TriggerEvent('qb-gangs:client:getdataandnui')
 
                         if not Territories[k].zone:isPointInside(GetEntityCoords(PlayerPed)) then
                             TriggerServerEvent("qb-gangs:server:updateterritories", activeZone, false)
@@ -86,4 +75,22 @@ Citizen.CreateThread(function()
             Citizen.Wait(2000)
         end
     end
+end)
+
+
+RegisterNetEvent("qb-gangs:client:getdataandnui")
+AddEventHandler("qb-gangs:client:getdataandnui", function()
+                            -- We fetch a callback for the most reason status of the zone and send it to the NUI
+                            QBCore.Functions.TriggerCallback("qb-gangs:server:getstatus", function(status, gang, score)
+                                SendNUIMessage({
+                                    action = "showgang",
+                                    data = {
+                                        status = status,
+                                        winner = gang,
+                                        score = score
+                                    },
+                                    gang = PlayerGang.label ~= "none" and PlayerGang.label or "Police",
+                                    max = Zones["Config"].minScore
+                                })
+                            end, activeZone)
 end)

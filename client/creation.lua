@@ -15,7 +15,7 @@ AddEventHandler("qb-gangs:client:BeginGangCreation", function(gangName, gangLabe
         ["Stash"] = {}
     }
     isCreatingGang = true
-    TriggerEvent("chatMessage", "SYSTEM", "warning", "Új banda: "..gangName.."létrehozva, használd a /placestash, /placegarage,  /finishgang or /cancelgang")
+    TriggerEvent("chatMessage", "RENDSZER", "warning", "Új banda: "..gangName.."létrehozva, használd a /placestash, /placegarage,  /finishgang or /cancelgang")
 end)
 
 RegisterCommand("placestash", function()

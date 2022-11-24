@@ -26,6 +26,7 @@ AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
     isLoggedIn = true
     PlayerGang = QBCore.Functions.GetPlayerData().gang
     PlayerJob = QBCore.Functions.GetPlayerData().job
+    QBCore.Functions.Notify('Banda: Betöltés készen van!', infrom)
 end)
 
 RegisterNetEvent('QBCore:Client:OnPlayerUnload')
@@ -111,11 +112,11 @@ end)
 
 RegisterCommand("+GangInteract", function()
     if currentAction == "stash" then
-        TriggerServerEvent("inventory:server:OpenInventory", "stash", PlayerGang.name.."stash", {
+        TriggerServerEvent("inventory:server:OpenInventory", "stash", PlayerGang.name.."tároló", {
             maxweight = 4000000,
             slots = 500,
         })
-        TriggerEvent("inventory:client:SetCurrentStash", PlayerGang.name.."stash")
+        TriggerEvent("inventory:client:SetCurrentStash", PlayerGang.name.."tároló")
     elseif currentAction == "garage" then
         if IsPedInAnyVehicle(GetPlayerPed(-1), false) then
             DeleteVehicle(GetVehiclePedIsIn(GetPlayerPed(-1)))
