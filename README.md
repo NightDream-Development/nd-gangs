@@ -50,24 +50,8 @@ end)
 
 A zárható ajtók engedélyezéséhez a bandák számára módosítania kell qb-doorlocks/client/main.lua  217 sorban.
 Valahogy így:
-```lua
-function IsAuthorized(doorID)
-	local PlayerData = QBCore.Functions.GetPlayerData()
-
-	for _,job in pairs(doorID.authorizedJobs) do
-		if job == PlayerData.job.name then
-			return true
-		end
-	end
-
-	for _,gang in pairs(doorID.authorizedJobs) do
-		if gang == PlayerData.gang.name then
-			return true
-		end
-	end
-	
-	return false
-end
+```
+Ez már nem kell! 
 ```
 Adja hozzá az egyes bandákhoz tartozó Citizenideket a bandavezetők számára a server/config.lua fájlhoz, így:
 ```lua
