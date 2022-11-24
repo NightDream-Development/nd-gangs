@@ -1,4 +1,4 @@
-# 🔪 **qb-gangs (Drazox)**
+# 🔪 **nd-gangs (Drazox)**
 
 Ez a script már rég nem volt fejlesztve de egy srác mégis folytatta és én pedig magyarosítom mindenkinek! Kellemes használatot!
 
