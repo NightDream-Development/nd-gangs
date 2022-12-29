@@ -10,7 +10,7 @@ Bandák qbcore-ra a job-ok helyett a bandatámogatással, támogatja a végtelen
 Minden bandának van egy rejtekhelye és egy listája azokról a járművekről, amelyeket kiszállhatnak a garázsból. A konfiguráció teljesen testreszabható az egyes bandák számára. Bandák hozhatók létre a játékban a konfigurátorral, a főnökök és a területek pedig manuálisan konfigurálhatók.
 
 # Banda létrehozása
-- A banda létrehozásának megkezdéséhez használja a „/creategang [név] [leírás]” parancsot a folyamat elindításához, használja a „/placestash” paranccsal a banda rejtekhelyét és a „/placegarage” paranccsal a banda garázsát a játékon belüli konfigurátor segítségével. a banda színei és a járműlista, ha mindkettőt elhelyezte, használhatja a `/finishgang'-t a befejezéshez, vagy a `/cancelgang'-t bármikor megszakíthatja a folyamatot.
+- A banda létrehozásának megkezdéséhez használja a „/creategang [név] [leírás]” parancsot a folyamat elindításához, használja a „/placestash” paranccsal a banda rejtekhelyét és a „/placegarage” paranccsal a banda garázsát a játékon belüli konfigurátor segítségével. a banda színei és a járműlista, ha mindkettőt elhelyezte, használhatja a '/finishgang' a befejezéshez, vagy a `/cancelgang' bármikor megszakíthatja a folyamatot.
 
 
 </details>
