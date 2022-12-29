@@ -1,9 +1,9 @@
 fx_version 'cerulean'
 game 'gta5'
 
-version '2.5'
+version '2.9.6'
 
-author 'Mojito-Fivem'
+author 'Mojito-Fivem & NDD'
 
 client_scripts {
 	'@PolyZone/client.lua',
