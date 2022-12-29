@@ -28,7 +28,7 @@ Citizen.CreateThread(function()
         })
 
         local blip = AddBlipForRadius(v.centre.x, v.centre.y, v.centre.z, v.radius)
-        SetBlipAlpha(blip, 80) -- Change opacity here
+        SetBlipAlpha(blip, 80) 
         SetBlipColour(blip, Zones["Colours"][v.winner] ~= nil and Zones["Colours"][v.winner] or Zones["Colours"].neutral)
     
         Territories[k] = {
@@ -61,11 +61,11 @@ Citizen.CreateThread(function()
                     
                     TriggerEvent("QBCore:Notify", "Beléptél Banda területre", "success")
 
-                    -- Whilst inside the zone we send a server event for the server sided calculations
+                    
                     while insidePoint == true do
                         TriggerServerEvent("qb-gangs:server:updateterritories", activeZone, true)
 
-                        -- We fetch a callback for the most reason status of the zone and send it to the NUI
+                        
                         QBCore.Functions.TriggerCallback("qb-gangs:server:getstatus", function(status, gang, score)
                         print('1 '..status)
                         print('2 '..gang)
