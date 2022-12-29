@@ -2,6 +2,22 @@ local QBCore = exports['qb-core']:GetCoreObject()
 local Territories = {}
 local insidePoint = false
 local activeZone = nil
+local loaded = false
+
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
+    loaded = true
+    print('[gangsystem]: Betöltésre kerülnek a területek!')
+end)
+
+
+
+--DEV RESI STB FASZSÁG
+--AddEventHandler('onResourceStart', function(resourceName)
+   -- loaded = true
+   -- print('[gangsystem]: Betöltésre kerülnek a területek!')
+--end)
+
+
 
 Citizen.CreateThread(function()
     Citizen.Wait(500)
@@ -32,7 +48,7 @@ AddEventHandler("qb-gangs:client:updateblips", function(zone, winner)
 end)
 
 Citizen.CreateThread(function()
-    while true do 
+    while loaded==true do 
         Citizen.Wait(500)
         if PlayerGang.name ~= "none" or PlayerJob.name == "police" then
             local PlayerPed = PlayerPedId()
@@ -49,8 +65,13 @@ Citizen.CreateThread(function()
                     while insidePoint == true do
                         TriggerServerEvent("qb-gangs:server:updateterritories", activeZone, true)
 
-                        --NUi fix mert egy büdős szar az egész!
-                        TriggerEvent('qb-gangs:client:getdataandnui')
+                        -- We fetch a callback for the most reason status of the zone and send it to the NUI
+                        QBCore.Functions.TriggerCallback("qb-gangs:server:getstatus", function(status, gang, score)
+                        print('1 '..status)
+                        print('2 '..gang)
+                        print('3 '..score)
+                        exports['ps-ui']:DisplayText("<b>Banda Terület</p>Befoglalás: "..score.."%</p> Tulajdonos:"..gang.."</p>Státusz: "..status.."", "warning") -- Colors: primary, error, success, warning, info, mint
+                        end, activeZone)
 
                         if not Territories[k].zone:isPointInside(GetEntityCoords(PlayerPed)) then
                             TriggerServerEvent("qb-gangs:server:updateterritories", activeZone, false)
@@ -62,9 +83,7 @@ Citizen.CreateThread(function()
 
                             Citizen.Wait(1000)
 
-                            SendNUIMessage({
-                                action = "hide"
-                            })
+                            exports['ps-ui']:HideText()
                         end
 
                         Citizen.Wait(1000)
@@ -75,22 +94,4 @@ Citizen.CreateThread(function()
             Citizen.Wait(2000)
         end
     end
-end)
-
-
-RegisterNetEvent("qb-gangs:client:getdataandnui")
-AddEventHandler("qb-gangs:client:getdataandnui", function()
-                            -- We fetch a callback for the most reason status of the zone and send it to the NUI
-                            QBCore.Functions.TriggerCallback("qb-gangs:server:getstatus", function(status, gang, score)
-                                SendNUIMessage({
-                                    action = "showgang",
-                                    data = {
-                                        status = status,
-                                        winner = gang,
-                                        score = score
-                                    },
-                                    gang = PlayerGang.label ~= "none" and PlayerGang.label or "Police",
-                                    max = Zones["Config"].minScore
-                                })
-                            end, activeZone)
 end)
