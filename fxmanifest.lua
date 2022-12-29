@@ -18,7 +18,7 @@ server_scripts {
 	'server/leaders.lua',
 	'server/main.lua',
 	'server/territories.lua',
-	'server/version.lua'
+	'version.lua'
 }
 
 shared_scripts { "shared/*.lua" }
