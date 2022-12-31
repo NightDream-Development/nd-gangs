@@ -1,4 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject() --Új Qbcore
+
+local resourcename = "nd-gangs" --Resihez
 Config = {}
 
 Citizen.CreateThread(function()
