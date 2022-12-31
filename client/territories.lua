@@ -3,7 +3,7 @@ local Territories = {}
 local insidePoint = false
 local activeZone = nil
 local loaded = false
-
+local resourcename = "nd-gangs" --resihez
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     loaded = true
     print('[gangsystem]: Betöltésre kerülnek a területek!')
@@ -12,10 +12,10 @@ end)
 
 
 --DEV RESI STB FASZSÁG
---AddEventHandler('onResourceStart', function(resourceName)
-   -- loaded = true
-   -- print('[gangsystem]: Betöltésre kerülnek a területek!')
---end)
+AddEventHandler('onResourceStart', function(resourceName)
+    loaded = true
+    print('[gangsystem]: Betöltésre kerülnek a területek!')
+end)
 
 
 
