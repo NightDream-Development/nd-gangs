@@ -113,6 +113,8 @@ RegisterNUICallback("SetVehicleColour", function(data, cb)
             gang["VehicleSpawner"]["vehicles"][v] = name
         else
             QBCore.Functions.Notify(v.." nem létezik a jármű  a qb-core/shared-modules/vehicles.lua fájlban! Szólj egy fejlesztőnek vagy tulajdonosknak!", "error")
+                        local name = QBCore.Shared.Vehicles[v].name
+            gang["VehicleSpawner"]["vehicles"][v] = name
         end
     end
 
