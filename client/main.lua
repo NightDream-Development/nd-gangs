@@ -29,6 +29,19 @@ AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
     QBCore.Functions.Notify('Banda: Betöltés készen van!', infrom)
 end)
 
+--DEV RESI STB FASZSÁG
+AddEventHandler('onResourceStart', function(resourcename)
+    QBCore.Functions.TriggerCallback("qb-gangs:server:FetchConfig", function(gangs)
+        Config.Gangs = gangs
+    end)
+    Wait(1500)
+    isLoggedIn = true
+    PlayerGang = QBCore.Functions.GetPlayerData().gang
+    PlayerJob = QBCore.Functions.GetPlayerData().job
+    print('[gangsystem]: CP-k betöltés!')
+end)
+
+
 RegisterNetEvent('QBCore:Client:OnPlayerUnload')
 AddEventHandler('QBCore:Client:OnPlayerUnload', function()
     isLoggedIn = false
