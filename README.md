@@ -5,6 +5,11 @@ Ez a script már rég nem volt fejlesztve de egy srác mégis folytatta és én 
 
 Bandák qbcore-ra a job-ok helyett a bandatámogatással, támogatja a végtelenül skálázó bandákat. Szuper 0,01 ms alapjárati optimalizált, ha bandában vagy akkor 0,04 ms-el tetőzik cp-kel vagy egy területi zónán belül, 0,00 ms alapjáraton civilként.
 
+
+2.9.7 veziróról egy videó! 
+https://streamable.com/rrrkty 
+
+
 # Jellemzők:
 
 Minden bandának van egy rejtekhelye és egy listája azokról a járművekről, amelyeket kiszállhatnak a garázsból. A konfiguráció teljesen testreszabható az egyes bandák számára. Bandák hozhatók létre a játékban a konfigurátorral, a főnökök és a területek pedig manuálisan konfigurálhatók.
