@@ -33,7 +33,7 @@ Sokat számít mindenkinek!
 - [PS-UI](https://github.com/Project-Sloth/ps-ui) [Ha NP félét akarsz akkor https://github.com/HarithMichael/ps-ui !]
 - [Ox MySQL](https://github.com/overextended/oxmysql)
 
-Ezt tagd be a  qb-core/shared/gangs.lua like így:
+Ezt ragd be a  qb-core/shared/gangs.lua like így:
 ```lua
 QBShared.Gangs = json.decode(LoadResourceFile("qb-gangs", "gangs.json"))
 
