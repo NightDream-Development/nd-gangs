@@ -48,7 +48,9 @@ AddEventHandler("qb-gangs:client:updateblips", function(zone, winner)
 end)
 
 Citizen.CreateThread(function()
-    while loaded==true do 
+      while true do
+        -- Check if the player is loaded or the resource has started
+        if loaded then
         Citizen.Wait(500)
         if PlayerGang.name ~= "none" or PlayerJob.name == "police" then
             local PlayerPed = PlayerPedId()
