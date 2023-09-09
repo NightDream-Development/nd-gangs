@@ -40,7 +40,7 @@ Sokat számít mindenkinek!
 
 Ezt ragd be a  qb-core/shared/gangs.lua like így:
 ```lua
-QBShared.Gangs = json.decode(LoadResourceFile("qb-gangs", "gangs.json"))
+QBShared.Gangs = json.decode(LoadResourceFile("nd-gangs", "gangs.json"))
 
 ```
 Ragd be ezt a qb-core/server/events.lua
